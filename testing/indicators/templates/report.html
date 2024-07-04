@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Report</title>
+</head>
+<body>
+    <h1>Generate Report</h1>
+    <form method="get" action="{% url 'generate_report' %}">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+        <button type="submit">Generate Report</button>
+    </form>
+</body>
+</html>
