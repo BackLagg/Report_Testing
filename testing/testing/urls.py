@@ -4,11 +4,6 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('indicators.urls')),
-]
-
 schema_view = get_schema_view(
     openapi.Info(
         title="Young Specialists API",
@@ -19,6 +14,8 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
-urlpatterns += [
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('indicators.urls')),  # Подключение urls из приложения indicators
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
