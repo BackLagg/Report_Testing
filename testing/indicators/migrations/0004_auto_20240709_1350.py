@@ -22,7 +22,8 @@ JOIN
 JOIN 
     indicators_monthlyformline l ON h.id = l.form_header_id
 JOIN 
-    indicators_indicator i ON l.indicator_id = i.id;
+    indicators_indicator i ON l.indicator_id = i.id
+    ORDER BY company_name
         """)
 
 def drop_view(apps, schema_editor):
