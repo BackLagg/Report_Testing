@@ -5,7 +5,7 @@ from django.db import migrations, connection
 def create_view(apps, schema_editor):
     with connection.cursor() as cursor:
         cursor.execute("""
-            CREATE OR REPLACE VIEW full_report2 AS
+            CREATE OR REPLACE VIEW full_report AS
 SELECT 
     c.name AS company_name,
     h.start_date,
@@ -27,7 +27,7 @@ JOIN
 
 def drop_view(apps, schema_editor):
     with connection.cursor() as cursor:
-        cursor.execute("DROP VIEW IF EXISTS full_report2")
+        cursor.execute("DROP VIEW IF EXISTS full_report")
 
 class Migration(migrations.Migration):
 
