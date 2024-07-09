@@ -29,8 +29,9 @@ def generate_report(request):
     with connection.cursor() as cursor:
         cursor.execute("""
                 SELECT * FROM full_report
-                WHERE start_date >= %s AND end_date <= %s
-                ORDER BY company_name, article_order
+            WHERE %s BETWEEN start_date AND end_date
+            AND %s BETWEEN start_date AND end_date
+            ORDER BY company_name, article_order
             """, [start_date, end_date])
         rows = cursor.fetchall()
         columns = [col[0] for col in cursor.description]
